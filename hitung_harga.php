@@ -35,9 +35,9 @@
         // Total akhir
         $total_akhir = $total_setelah_diskon + $ppn;
         ?>
-
-    </div class="row">
-        <div class="col-md-8">
+        
+        <div class="row">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
                         <h5 class="mb-0">Detail Pembelian</h5>
@@ -77,7 +77,7 @@
                                 <td>: Rp <?php echo number_format($total_akhir, 0, ',', '.'); ?></td>
                             </tr>
                         </table>
-
+                        
                         <?php if ($persentase_diskon > 0): ?>
                         <div class="alert alert-success">
                             <strong>Selamat!</strong> Anda mendapat diskon <?php echo $persentase_diskon; ?>% 
@@ -87,7 +87,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="col-md-4">
                 <div class="card border-info">
                     <div class="card-header bg-info text-white">
@@ -110,7 +110,7 @@
                         </ul>
                     </div>
                 </div>
-     
+                
                 <div class="card border-warning mt-3">
                     <div class="card-header bg-warning">
                         <h6 class="mb-0">Hemat Anda</h6>
@@ -126,7 +126,7 @@
                 </div>
             </div>
         </div>
-
+        
         <!-- Contoh perhitungan lain -->
         <div class="card mt-4">
             <div class="card-header bg-secondary text-white">
@@ -147,8 +147,8 @@
                     Gudang C: <?php echo $stok_gudang_c; ?> = 
                     <strong><?php echo $total_stok; ?> buku</strong>
                 </p>
-
-                 <?php
+                
+                <?php
                 // Contoh 2: Menghitung rata-rata harga
                 $harga1 = 50000;
                 $harga2 = 75000;
@@ -162,8 +162,8 @@
                     Rp <?php echo number_format($harga3, 0, ',', '.'); ?>) / 3 = 
                     <strong>Rp <?php echo number_format($rata_rata, 0, ',', '.'); ?></strong>
                 </p>
-
-                 <?php
+                
+                <?php
                 // Contoh 3: Menghitung persentase
                 $buku_dipinjam = 78;
                 $total_buku = 500;
@@ -175,7 +175,7 @@
                     <strong><?php echo number_format($persentase, 2); ?>%</strong>
                 </p>
                 
-                                <?php
+                <?php
                 // Contoh 4: Pembulatan
                 $harga_diskon = 87543.75;
                 ?>
@@ -189,7 +189,7 @@
             </div>
         </div>
     </div>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
