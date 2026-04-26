@@ -8,71 +8,93 @@
 
 ---
 
+## 📌 Deskripsi
+Tugas ini bertujuan untuk melakukan eksplorasi database perpustakaan menggunakan query SQL, meliputi statistik, filtering, agregasi, update data, dan pembuatan laporan.
+
+---
+
 ## 📊 Statistik Buku
 
 ### 1. Total Buku
+Menampilkan jumlah seluruh buku dalam tabel.
 ![Query1](images/Query1.png)
 
 ### 2. Total Inventaris
+Menghitung total nilai inventaris (harga × stok).
 ![Query2](images/Query2.png)
 
 ### 3. Rata-rata Harga
+Menampilkan rata-rata harga semua buku.
 ![Query3](images/Query3.png)
 
 ### 4. Buku Termahal
+Menampilkan buku dengan harga tertinggi.
 ![Query4](images/Query4.png)
 
 ### 5. Stok Terbanyak
+Menampilkan buku dengan stok paling banyak.
 ![Query5](images/Query5.png)
 
 ---
 
 ## 🔍 Filter dan Pencarian
 
-### 6. Programming < 100000
-![Query6](images/Query6.png)
+### 6. Buku Programming < 100000
+Menampilkan buku kategori Programming dengan harga kurang dari 100000.
+![Query6](images/Query6.jpeg)
 
 ### 7. Judul PHP/MySQL
-![Query7](images/Query7.png)
+Menampilkan buku yang judulnya mengandung kata PHP atau MySQL.
+![Query7](images/Query7.jpeg)
 
 ### 8. Tahun 2024
-![Query8](images/Query8.png)
+Menampilkan buku yang terbit pada tahun 2024.
+![Query8](images/Query8.jpeg)
 
 ### 9. Stok 5-10
-![Query9](images/Query9.png)
+Menampilkan buku dengan stok antara 5 sampai 10.
+![Query9](images/Query9.jpeg)
 
 ### 10. Pengarang Budi Raharjo
-![Query10](images/Query10.png)
+Menampilkan buku dengan pengarang Budi Raharjo.
+![Query10](images/Query10.jpeg)
 
 ---
 
 ## 📊 Grouping dan Agregasi
 
 ### 11. Jumlah per Kategori
-![Query11](images/Query11.png)
+Menampilkan jumlah buku dan total stok berdasarkan kategori.
+![Query11](images/Query11.jpeg)
 
 ### 12. Rata-rata per Kategori
-![Query12](images/Query12.png)
+Menampilkan rata-rata harga buku pada setiap kategori.
+![Query12](images/Query12.jpeg)
 
 ### 13. Inventaris Terbesar
-![Query13](images/Query13.png)
+Menampilkan kategori dengan total nilai inventaris terbesar.
+![Query13](images/Query13.jpeg)
 
 ---
 
 ## ✏️ Update Data
 
 ### 14. Update Harga
-![Query14](images/Query14.png)
+Menaikkan harga buku kategori Programming sebesar 5%.
+![Query14](images/Query14.jpeg)
 
 ### 15. Update Stok
-![Query15](images/Query15.png)
+Menambahkan stok 10 untuk buku yang stoknya kurang dari 5.
+![Query15](images/Query15.jpeg)
 
 ---
 
 ## 📋 Laporan Khusus
 
 ### 16. Restocking
-![Query16](images/Query16.png)
+Menampilkan buku yang perlu restocking (stok kurang dari 5).
+![Query16](images/Query16.jpeg)
 
 ### 17. Top 5 Termahal
-![Query17](images/Query17.png)
+Menampilkan 5 buku dengan harga tertinggi.
+![Query17](images/Query17.jpeg)
