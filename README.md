@@ -99,3 +99,35 @@ Menampilkan buku yang perlu restocking (stok kurang dari 5).
 ### 17. Top 5 Termahal
 Menampilkan 5 buku dengan harga tertinggi.
 ![Query17](images/Query17.png)
+
+## 🏗️ Struktur dan Relasi Database
+
+### 18. Entity Relationship Diagram (ERD)
+Hubungan antar tabel dalam database perpustakaan.
+![ERD](images/ERD.jpeg)
+
+### 19. Skema Tabel (Structure)
+Detail kolom dan tipe data dari masing-masing tabel:
+- **Struktur Buku**: ![Struktur Buku](images/struktur_buku.jpeg)
+- **Struktur Kategori**: ![Struktur Kategori](images/struktur_kategori.jpeg)
+- **Struktur Penerbit**: ![Struktur Penerbit](images/struktur_penerbit.jpeg)
+- **Struktur Rak**: ![Struktur Rak](images/struktur_rak.jpeg)
+
+---
+
+## 💾 Data Master (Data Dump)
+
+### 20. Isi Tabel Database
+Tampilan data yang telah diinputkan ke dalam sistem:
+- **Data Buku**: ![Data Buku](images/data_buku.jpeg)
+- **Data Kategori**: ![Data Kategori](images/data_kategori_buku.jpeg)
+- **Data Penerbit**: ![Data Penerbit](images/data_penerbit.jpeg)
+- **Data Rak**: ![Data Rak](images/data_rak.jpeg)
+
+---
+
+## 🔗 Laporan Join Terpadu
+
+### 21. Hasil Query Join
+Laporan lengkap yang menggabungkan tabel buku, kategori, penerbit, dan rak.
+![Hasil Query Join](images/hasilqueryjoin.jpeg)
