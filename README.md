@@ -97,4 +97,4 @@ Menampilkan buku yang perlu restocking (stok kurang dari 5).
 
 ### 17. Top 5 Termahal
 Menampilkan 5 buku dengan harga tertinggi.
-![Query17](images/Query17.jpeg)
+![Query17](images/Query17.png)
