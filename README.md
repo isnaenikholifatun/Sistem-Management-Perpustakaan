@@ -1,14 +1,15 @@
 # Tugas Database - Query SQL
 
-## 👤 Identitas Mahasiswa
+## 👤 Identitas Diri
 - Nama  : Isnaeni Kholifatun
 - NIM   : 60324075
 - Kelas : B
 - Mata Kuliah : Pemograman WEB 2
+- Prodi : Informatika
 
 ---
 
-## 📌 Deskripsi
+## Deskripsi
 Tugas ini bertujuan untuk melakukan eksplorasi database perpustakaan menggunakan query SQL, meliputi statistik, filtering, agregasi, update data, dan pembuatan laporan.
 
 ---
