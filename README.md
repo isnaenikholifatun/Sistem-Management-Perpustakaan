@@ -109,7 +109,7 @@ Hubungan antar tabel dalam database perpustakaan.
 ### 19. Skema Tabel (Structure)
 Detail kolom dan tipe data dari masing-masing tabel:
 - **Struktur Buku**: ![Struktur Buku](images/struktur_buku.jpeg)
-- **Struktur Kategori**: ![Struktur Kategori](images/struktur_kategori.jpeg)
+- **Struktur Kategori**: ![Struktur Kategori](images/struktur_kategoribuku.jpeg)
 - **Struktur Penerbit**: ![Struktur Penerbit](images/struktur_penerbit.jpeg)
 - **Struktur Rak**: ![Struktur Rak](images/struktur_rak.jpeg)
 
