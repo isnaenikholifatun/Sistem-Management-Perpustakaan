@@ -108,10 +108,10 @@ Hubungan antar tabel dalam database perpustakaan.
 
 ### 19. Skema Tabel (Structure)
 Detail kolom dan tipe data dari masing-masing tabel:
-- **Struktur Buku**: ![Struktur Buku](images/struktur_buku.jpeg)
-- **Struktur Kategori**: ![Struktur Kategori](images/struktur_kategoribuku.jpeg)
-- **Struktur Penerbit**: ![Struktur Penerbit](images/struktur_penerbit.jpeg)
-- **Struktur Rak**: ![Struktur Rak](images/struktur_rak.jpeg)
+- **Struktur Buku**: ![Struktur Buku](images/struktur_buku.png)
+- **Struktur Kategori Buku**: ![Struktur Kategori](images/struktur_kategoribuku.png)
+- **Struktur Penerbit**: ![Struktur Penerbit](images/struktur_penerbit.png)
+- **Struktur Rak**: ![Struktur Rak](images/struktur_rak.png)
 
 ---
 
@@ -119,15 +119,18 @@ Detail kolom dan tipe data dari masing-masing tabel:
 
 ### 20. Isi Tabel Database
 Tampilan data yang telah diinputkan ke dalam sistem:
-- **Data Buku**: ![Data Buku](images/data_buku.jpeg)
-- **Data Kategori**: ![Data Kategori](images/data_kategori_buku.jpeg)
-- **Data Penerbit**: ![Data Penerbit](images/data_penerbit.jpeg)
-- **Data Rak**: ![Data Rak](images/data_rak.jpeg)
+- **Data Buku**: ![Data Buku](images/data_buku.png)
+- **Data Kategori Buku**: ![Data Kategori](images/data_kategoribuku.png)
+- **Data Penerbit**: ![Data Penerbit](images/data_penerbit.png)
+- **Data Rak**: ![Data Rak](images/data_rak.png)
 
 ---
 
 ## 🔗 Laporan Join Terpadu
 
-### 21. Hasil Query Join
+### 21. Hasil Query Join 
 Laporan lengkap yang menggabungkan tabel buku, kategori, penerbit, dan rak.
-![Hasil Query Join](images/hasilqueryjoin.jpeg)
+- **Query tabel buku** : ![Query tabel buku](images/JOIN buku_ kategori_ penerbit.png)
+- **Jumlah buku perkategori** :![Jumlah buku perkategori](images/jumlah_buku_perkategori.png)
+- **Jumlah buku perpenerbit** :![Jumlah buku perpenerbit](images/jumlah_buku_perpenerbit.png)
+- **Detail lengkap buku** :![Detail lengkap buku](images/detail_lengkapbuku.png)
