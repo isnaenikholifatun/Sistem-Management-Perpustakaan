@@ -21,6 +21,7 @@ Menampilkan jumlah seluruh buku dalam tabel.
 
 ```sql
 SELECT COUNT(*) AS total_buku FROM buku;
+```
 ![Query1](images/Query1.png)
 
 ### 2. Total Inventaris
