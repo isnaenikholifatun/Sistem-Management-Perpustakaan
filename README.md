@@ -18,6 +18,7 @@ Tugas ini bertujuan untuk melakukan eksplorasi database perpustakaan menggunakan
 
 ### 1. Total Buku
 Menampilkan jumlah seluruh buku dalam tabel.
+```sql
 SELECT COUNT(*) AS total_buku FROM buku;
 ![Query1](images/Query1.png)
 
@@ -131,7 +132,7 @@ Tampilan data yang telah diinputkan ke dalam sistem:
 
 ### 21. Hasil Query Join 
 Laporan lengkap yang menggabungkan tabel buku, kategori, penerbit, dan rak.
-- **Query tabel buku join** :![Query tabel buku join](images/JOIN_buku_kategori_penerbit.png)
+- **Query join** :![Query join](images/query.join.png)
 - **Jumlah buku perkategori** :![Jumlah buku perkategori](images/jumlah_buku_perkategori.png)
 - **Jumlah buku perpenerbit** :![Jumlah buku perpenerbit](images/jumlah_buku_perpenerbit.png)
 - **Detail lengkap buku** :![Detail lengkap buku](images/detail_lengkapbuku.png)
