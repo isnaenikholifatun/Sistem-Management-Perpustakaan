@@ -104,7 +104,7 @@ Menampilkan 5 buku dengan harga tertinggi.
 
 ### 18. Entity Relationship Diagram (ERD)
 Hubungan antar tabel dalam database perpustakaan.
-![ERD](images/ERD.jpeg)
+![ERD](images/ERD.png)
 
 ### 19. Skema Tabel (Structure)
 Detail kolom dan tipe data dari masing-masing tabel:
