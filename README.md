@@ -18,6 +18,7 @@ Tugas ini bertujuan untuk melakukan eksplorasi database perpustakaan menggunakan
 
 ### 1. Total Buku
 Menampilkan jumlah seluruh buku dalam tabel.
+
 ```sql
 SELECT COUNT(*) AS total_buku FROM buku;
 ![Query1](images/Query1.png)
