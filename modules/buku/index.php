@@ -3,9 +3,50 @@ $page_title = "Data Buku";
 require_once '../../config/database.php';
 require_once '../../includes/header.php';
  
-// Query semua buku
-$query = "SELECT * FROM buku ORDER BY created_at DESC";
-$result = $conn->query($query);
+// Pagination
+$limit = 10; // Jumlah data per halaman
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = ($page - 1) * $limit;
+ 
+// Search
+$search = isset($_GET['search']) ? sanitize($_GET['search']) : '';
+ 
+// Build query
+if (!empty($search)) {
+    // Query dengan search
+    $query = "SELECT * FROM buku 
+              WHERE judul LIKE ? OR pengarang LIKE ? OR kategori LIKE ?
+              ORDER BY created_at DESC 
+              LIMIT ? OFFSET ?";
+    
+    $search_param = "%$search%";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("sssii", $search_param, $search_param, $search_param, $limit, $offset);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    // Count total untuk pagination
+    $count_query = "SELECT COUNT(*) as total FROM buku 
+                    WHERE judul LIKE ? OR pengarang LIKE ? OR kategori LIKE ?";
+    $stmt_count = $conn->prepare($count_query);
+    $stmt_count->bind_param("sss", $search_param, $search_param, $search_param);
+    $stmt_count->execute();
+    $total_rows = $stmt_count->get_result()->fetch_assoc()['total'];
+    
+} else {
+    // Query tanpa search
+    $query = "SELECT * FROM buku ORDER BY created_at DESC LIMIT ? OFFSET ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $limit, $offset);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    // Count total
+    $total_rows = $conn->query("SELECT COUNT(*) as total FROM buku")->fetch_assoc()['total'];
+}
+ 
+// Hitung total halaman
+$total_pages = ceil($total_rows / $limit);
 ?>
  
 <div class="container">
@@ -21,7 +62,7 @@ $result = $conn->query($query);
     </div>
     
     <?php
-    // Tampilkan pesan success/error
+    // Success/Error messages (sama seperti sebelumnya)
     if (isset($_GET['success'])) {
         echo '<div class="alert alert-success alert-dismissible fade show">';
         echo '<i class="bi bi-check-circle"></i> ' . htmlspecialchars($_GET['success']);
@@ -37,9 +78,39 @@ $result = $conn->query($query);
     }
     ?>
     
+    <!-- Search Box -->
+    <div class="card mb-3">
+        <div class="card-body">
+            <form method="GET" action="">
+                <div class="input-group">
+                    <input type="text" 
+                           class="form-control" 
+                           name="search" 
+                           value="<?php echo htmlspecialchars($search); ?>"
+                           placeholder="Cari judul, pengarang, atau kategori...">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-search"></i> Cari
+                    </button>
+                    <?php if (!empty($search)): ?>
+                    <a href="index.php" class="btn btn-secondary">
+                        <i class="bi bi-x-circle"></i> Reset
+                    </a>
+                    <?php endif; ?>
+                </div>
+            </form>
+        </div>
+    </div>
+    
     <div class="card">
         <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Daftar Buku</h5>
+            <h5 class="mb-0">
+                Daftar Buku
+                <?php if (!empty($search)): ?>
+                    <span class="badge bg-light text-dark">
+                        Hasil pencarian: "<?php echo htmlspecialchars($search); ?>"
+                    </span>
+                <?php endif; ?>
+            </h5>
         </div>
         <div class="card-body">
             <?php if ($result->num_rows > 0): ?>
@@ -61,7 +132,7 @@ $result = $conn->query($query);
                     </thead>
                     <tbody>
                         <?php 
-                        $no = 1;
+                        $no = $offset + 1;
                         while ($row = $result->fetch_assoc()): 
                         ?>
                         <tr>
@@ -101,15 +172,53 @@ $result = $conn->query($query);
                 </table>
             </div>
             
+            <!-- Pagination -->
+            <?php if ($total_pages > 1): ?>
+            <nav aria-label="Page navigation" class="mt-3">
+                <ul class="pagination justify-content-center">
+                    <!-- Previous -->
+                    <li class="page-item <?php echo ($page <= 1) ? 'disabled' : ''; ?>">
+                        <a class="page-link" href="?page=<?php echo ($page - 1); ?><?php echo !empty($search) ? '&search=' . urlencode($search) : ''; ?>">
+                            Previous
+                        </a>
+                    </li>
+                    
+                    <!-- Page Numbers -->
+                    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                    <li class="page-item <?php echo ($page == $i) ? 'active' : ''; ?>">
+                        <a class="page-link" href="?page=<?php echo $i; ?><?php echo !empty($search) ? '&search=' . urlencode($search) : ''; ?>">
+                            <?php echo $i; ?>
+                        </a>
+                    </li>
+                    <?php endfor; ?>
+                    
+                    <!-- Next -->
+                    <li class="page-item <?php echo ($page >= $total_pages) ? 'disabled' : ''; ?>">
+                        <a class="page-link" href="?page=<?php echo ($page + 1); ?><?php echo !empty($search) ? '&search=' . urlencode($search) : ''; ?>">
+                            Next
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <?php endif; ?>
+            
             <div class="alert alert-info mt-3 mb-0">
                 <i class="bi bi-info-circle"></i> 
-                <strong>Total:</strong> <?php echo $result->num_rows; ?> buku terdaftar
+                <strong>Total:</strong> <?php echo $total_rows; ?> buku terdaftar
+                <?php if (!empty($search)): ?>
+                    | <strong>Ditemukan:</strong> <?php echo $result->num_rows; ?> buku
+                <?php endif; ?>
+                | <strong>Halaman:</strong> <?php echo $page; ?> dari <?php echo $total_pages; ?>
             </div>
             
             <?php else: ?>
             <div class="alert alert-warning mb-0">
                 <i class="bi bi-exclamation-triangle"></i> 
-                Belum ada data buku. Silakan tambah buku baru.
+                <?php if (!empty($search)): ?>
+                    Tidak ada buku yang cocok dengan pencarian "<?php echo htmlspecialchars($search); ?>"
+                <?php else: ?>
+                    Belum ada data buku. Silakan tambah buku baru.
+                <?php endif; ?>
             </div>
             <?php endif; ?>
         </div>
@@ -117,6 +226,8 @@ $result = $conn->query($query);
 </div>
  
 <?php
+if (isset($stmt)) $stmt->close();
+if (isset($stmt_count)) $stmt_count->close();
 closeConnection();
 require_once '../../includes/footer.php';
 ?>
